@@ -12,7 +12,7 @@ export const bangs = [
   },
   {
     c: "Entertainment",
-    d: "oldschool.runescape.wiki/",
+    d: "oldschool.runescape.wiki",
     r: 0,
     s: "Osrs Wiki",
     sc: "Wiki",
