@@ -6,13 +6,13 @@ function noSearchDefaultPageRender() {
   app.innerHTML = `
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
       <div class="content-container">
-        <h1>Und*ck</h1>
+        <h1>Unfuck the duck</h1>
         <p>DuckDuckGo's bang redirects are too slow. Add the following URL as a custom search engine to your browser. Enables <a href="https://duckduckgo.com/bang.html" target="_blank">all of DuckDuckGo's bangs.</a></p>
         <div class="url-container"> 
           <input 
             type="text" 
             class="url-input"
-            value="https://unduck.link?q=%s"
+            value="https://localhost:5173?q=%s"
             readonly 
           />
           <button class="copy-button">
@@ -20,13 +20,6 @@ function noSearchDefaultPageRender() {
           </button>
         </div>
       </div>
-      <footer class="footer">
-        <a href="https://t3.chat" target="_blank">t3.chat</a>
-        •
-        <a href="https://x.com/theo" target="_blank">theo</a>
-        •
-        <a href="https://github.com/t3dotgg/unduck" target="_blank">github</a>
-      </footer>
     </div>
   `;
 
@@ -49,9 +42,15 @@ const defaultBang = bangs.find((b) => b.t === LS_DEFAULT_BANG);
 
 function getBangredirectUrl() {
   const url = new URL(window.location.href);
+  const osrs = url.searchParams.get("osrs")?.trim() ?? "";
   const query = url.searchParams.get("q")?.trim() ?? "";
-  if (!query) {
+  if (!query && !osrs) {
     noSearchDefaultPageRender();
+    return null;
+  }
+
+  if (osrs) {
+    getOsrsWikiUrl(osrs);
     return null;
   }
 
@@ -79,6 +78,33 @@ function doRedirect() {
   const searchUrl = getBangredirectUrl();
   if (!searchUrl) return;
   window.location.replace(searchUrl);
+}
+
+async function getOsrsWikiUrl(osrs: string): Promise<null> {
+  const url = `https://oldschool.runescape.wiki/rest.php/v1/search/title?q=${osrs}&limit=1`;
+
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.pages && Array.isArray(data.pages) && data.pages.length > 0) {
+      const firstPage = data.pages[0];
+      if (firstPage && firstPage.key) {
+        window.location.replace(`https://oldschool.runescape.wiki/w/${firstPage.key}`);
+      }
+    } else {
+      window.location.replace(`https://oldschool.runescape.wiki/?title=Special%3ASearch&fulltext=1&search=${osrs}`); // No matching page found
+    }
+    return null;
+  } catch (error) {
+    console.error("Error fetching or processing data:", error);
+    return null; // Handle errors gracefully
+  }
 }
 
 doRedirect();

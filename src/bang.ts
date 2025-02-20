@@ -11,6 +11,15 @@ export const bangs = [
     u: "https://www.t3.chat/new?q={{{s}}}",
   },
   {
+    c: "Entertainment",
+    d: "oldschool.runescape.wiki/",
+    r: 0,
+    s: "Osrs Wiki",
+    sc: "Wiki",
+    t: "osrs",
+    u: "http://localhost:5173?osrs={{{s}}}",
+  },
+  {
     c: "Tech",
     d: "www.01net.com",
     r: 4,
