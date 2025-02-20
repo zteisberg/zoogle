@@ -12,7 +12,7 @@ function noSearchDefaultPageRender() {
           <input 
             type="text" 
             class="url-input"
-            value="https://localhost:5173?q=%s"
+            value="https://zteisberg.github.io/zoogle?q=%s"
             readonly 
           />
           <button class="copy-button">
