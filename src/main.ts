@@ -6,8 +6,8 @@ function noSearchDefaultPageRender() {
   app.innerHTML = `
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
       <div class="content-container">
-        <h1>Unfuck the duck</h1>
-        <p>DuckDuckGo's bang redirects are too slow. Add the following URL as a custom search engine to your browser. Enables <a href="https://duckduckgo.com/bang.html" target="_blank">all of DuckDuckGo's bangs.</a></p>
+        <h1>A clean search experience</h1>
+        <p>Add the following URL as a custom search engine to your browser. Enables <a href="https://duckduckgo.com/bang.html" target="_blank">all of DuckDuckGo's bangs. Plus some custom ones like !t3 and !osrs</a></p>
         <div class="url-container"> 
           <input 
             type="text" 

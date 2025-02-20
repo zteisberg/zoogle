@@ -17,7 +17,7 @@ export const bangs = [
     s: "Osrs Wiki",
     sc: "Wiki",
     t: "osrs",
-    u: "http://localhost:5173?osrs={{{s}}}",
+    u: "https://zteisberg.github.io/zoogle?osrs={{{s}}}",
   },
   {
     c: "Tech",
