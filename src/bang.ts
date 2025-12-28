@@ -17,7 +17,7 @@ export const bangs = [
     s: "Osrs Wiki",
     sc: "Wiki",
     t: "osrs",
-    u: "https://zachtrack.dev/?osrs={{{s}}}",
+    u: "https://search.zachtrack.dev/?osrs={{{s}}}",
   },
   {
     c: "Tech",
