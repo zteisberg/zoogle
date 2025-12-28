@@ -20,7 +20,7 @@ function noSearchDefaultPageRender() {
           <input 
             type="text" 
             class="url-input"
-            value="https://zteisberg.github.io/zoogle?q=%s"
+            value="https://zachtrack.dev/?q=%s"
             readonly 
           />
           <button class="copy-button">
@@ -48,12 +48,12 @@ function noSearchDefaultPageRender() {
   const searchInput = app.querySelector<HTMLInputElement>(".search-box")!;
 
   searchButton.addEventListener("click", async () => {
-    window.location.replace(`https://zteisberg.github.io/zoogle?q=${searchInput.value}`);
+    window.location.replace(`https://zachtrack.dev/?q=${searchInput.value}`);
   });
 
   searchInput.addEventListener("keydown", async (event) => {
     if (event.key === "Enter") {
-      window.location.replace(`https://zteisberg.github.io/zoogle?q=${searchInput.value}`);
+      window.location.replace(`https://zachtrack.dev/?q=${searchInput.value}`);
     }
   });
 }
