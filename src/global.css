@@ -154,6 +154,10 @@ textarea {
     color: #ddd;
   }
 
+  .logo-container img {
+    filter: invert(78%);
+  }
+
   #app {
     background-color: #131313;
   }
